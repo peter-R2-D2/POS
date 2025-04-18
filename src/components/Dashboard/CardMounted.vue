@@ -8,7 +8,10 @@
       <p>{{ staft.date }}</p>
     </div>
     <div>
-      <v-icon class="bg-red rounded-circle" icon="mdi-currency-usd" />
+      <v-icon
+        class="bg-red rounded-circle"
+        icon="mdi-currency-usd"
+      />
     </div>
   </div>
 </template>
