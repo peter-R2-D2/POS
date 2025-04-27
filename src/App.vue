@@ -14,13 +14,13 @@
       <v-navigation-drawer
         v-model="drawer"
         :location="$vuetify.display.mobile ? 'start' : undefined"
-        expand-on-hover
-        rail
-        permanent
+        :class="{
+          'position-relative': !$vuetify.display.mobile,
+          'position-absolute': $vuetify.display.mobile
+        }"
       >
         <v-list
           :lines="false"
-          density="compact"
           nav
         >
           <v-list-item

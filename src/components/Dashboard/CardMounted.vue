@@ -31,7 +31,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .card {
-  width: 370px;
+  width: 340px;
   background-color: #212121;
   padding: 18px 15px;
   display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="mt-12">
+    <v-row class="mt-12 mt-md-0">
       <v-col
         cols="12"
       >
