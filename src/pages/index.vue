@@ -13,13 +13,29 @@
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col
+    <div
+      class="d-flex justify-md-space-between overflow-auto my-6"
+    >
+      <CardMounted
         v-for="staft in dashboardStaft"
         :key="staft.title"
-        cols="4"
+        :staft="staft"
+      />
+    </div>
+
+    <v-row>
+      <v-col
+        cols="12"
+        md="6"
       >
-        <CardMounted :staft="staft" />
+        <PopularProducts />
+      </v-col>
+
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <ProductStock />
       </v-col>
     </v-row>
   </div>
@@ -27,10 +43,12 @@
 
 <script setup>
 import CardMounted from '@/components/Dashboard/CardMounted.vue';
+import PopularProducts from '@/components/Dashboard/PopularProducts.vue';
+import ProductStock from '@/components/Dashboard/ProductStock.vue';
 
 const dashboardStaft = [
-  {title: 'Ventas Diarias', value: '20,000', date: '17/04.2025'},
-  {title: 'Ingresos Mensuales', value: '20,000', date: '17/04.2025'},
-  {title: 'Reservas en el mes', value: '20', date: '17/04.2025'}
+  {title: 'Ventas Diarias', value: '20,000', date: '17/04/2025'},
+  {title: 'Ingresos Mensuales', value: '20,000', date: '17/04/2025'},
+  {title: 'Reservas en el mes', value: '20', date: '17/04/2025'}
 ]
 </script>
