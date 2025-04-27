@@ -6,13 +6,11 @@
         color="secodary"
       >
         <v-toolbar-title>Nombre del negocio</v-toolbar-title>
-
         <v-app-bar-nav-icon
           variant="text"
           @click.stop="drawer = !drawer"
         />
       </v-app-bar>
-
       <v-navigation-drawer
         v-model="drawer"
         :location="$vuetify.display.mobile ? 'start' : undefined"
@@ -65,7 +63,7 @@
     {
       title: 'Inicio',
       value: '/',
-      icon: 'mdi-home',
+      icon: 'mdi-home', 
     },
     {
       title: 'Ventas',
