@@ -38,11 +38,14 @@
         <ProductStock />
       </v-col>
     </v-row>
+
+    <Overview />
   </div>
 </template>
 
 <script setup>
 import CardMounted from '@/components/Dashboard/CardMounted.vue';
+import Overview from '@/components/Dashboard/Overview.vue';
 import PopularProducts from '@/components/Dashboard/PopularProducts.vue';
 import ProductStock from '@/components/Dashboard/ProductStock.vue';
 

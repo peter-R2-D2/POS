@@ -1,12 +1,12 @@
 <template>
   <v-row>
     <!-- Panel de filtros -->
-    <v-col 
-      cols="12" 
+    <v-col
+      cols="12"
       md="4"
     >
-      <v-card 
-        class="pa-4" 
+      <v-card
+        class="pa-4"
         elevation="2"
       >
         <v-card-text class="text-h6">
@@ -14,9 +14,9 @@
         </v-card-text>
 
         <v-select
+          v-model="categoria"
           label="Categoría"
           :items="categorias"
-          v-model="categoria"
           clearable
         />
 
@@ -30,11 +30,11 @@
         </v-btn>
       </v-card>
     </v-col>
-    <v-col 
+    <v-col
       cols="12"
       md="8"
     >
-      <v-card 
+      <v-card
         class="pa-4"
         elevation="2"
       >
@@ -55,14 +55,14 @@
           :search="search"
         >
           <template #item.imagen="{ item }">
-            <v-img
-              :src="`../assets/${item.imagen}`"
+            <img
+              :src="getImageUrl(item.imagen)"
               :alt="`Imagen de ${item.nombre}`"
               height="64"
               width="64"
               cover
               class="my-2 rounded elevation-2"
-            />
+            >
           </template>
         </v-data-table>
       </v-card>
@@ -78,28 +78,28 @@ const categorias = ['Todos', 'mecanica', 'electronica', 'papeleria']
 const categoria = ref(null)
 
 const headers = [
-  { 
-    title: 'Presentación', 
-    key: 'imagen' 
+  {
+    title: 'Presentación',
+    key: 'imagen'
   },
-  { 
-    title: 'Nombre', 
+  {
+    title: 'Nombre',
     key: 'nombre' },
-  { 
-    title: 'Descripción', 
-    key: 'descripcion' 
+  {
+    title: 'Descripción',
+    key: 'descripcion'
   },
-  { 
-    title: 'Categoría', 
-    key: 'categoria' 
+  {
+    title: 'Categoría',
+    key: 'categoria'
   },
-  { 
-    title: 'Marca', 
-    key: 'marca' 
+  {
+    title: 'Marca',
+    key: 'marca'
   },
-  { 
-    title: 'Unidad de medida', 
-    key: 'unidadmedida' 
+  {
+    title: 'Unidad de medida',
+    key: 'unidadmedida'
   }
 ]
 
@@ -111,7 +111,7 @@ const items = ref([
     categoria: 'mecanica',
     marca: 'doña chonita',
     unidadmedida: '1pz',
-    imagen: '1.jpg'
+    imagen: 'logo.png'
   },
   {
     id: 2,
@@ -120,7 +120,7 @@ const items = ref([
     categoria: 'electronica',
     marca: 'Fluke',
     unidadmedida: '1pz',
-    imagen: '2.jpg'
+    imagen: '1.jpg'
   },
   {
     id: 3,
@@ -129,9 +129,13 @@ const items = ref([
     categoria: 'papeleria',
     marca: 'Chamex',
     unidadmedida: '1resma',
-    imagen: '3.jpg'
+    imagen: '1.jpg'
   }
 ])
+
+const getImageUrl = (img) => {
+  return new URL(`../assets/${img}`, import.meta.url).href
+}
 
 const filteredItems = computed(() => {
   if (!categoria.value || categoria.value === 'Todos') return items.value

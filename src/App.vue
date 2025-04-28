@@ -45,14 +45,10 @@
         <router-view />
       </v-container>
     </v-layout>
-
-
-    <AppFooter />
   </v-app>
 </template>
 
 <script setup>
-  import AppFooter from '@/components/AppFooter.vue'
   import { useDisplay } from 'vuetify'
   import { ref, watch } from 'vue'
 
@@ -63,7 +59,7 @@
     {
       title: 'Inicio',
       value: '/',
-      icon: 'mdi-home', 
+      icon: 'mdi-home',
     },
     {
       title: 'Ventas',
