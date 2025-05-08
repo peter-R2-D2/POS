@@ -64,19 +64,24 @@
               class="my-2 rounded elevation-2"
             >
           </template>
+          <template #item.actions="{ item }">
+            <EditInventario :item="item" />
+          </template>
         </v-data-table>
       </v-card>
     </v-col>
+    <!-- Componente modal-->
+    <AddInventario />
   </v-row>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
-
+import AddInventario from '@/components/Inventario/AddInventario.vue'
+import EditInventario from '@/components/Inventario/EditInventario.vue'
 const search = ref('')
 const categorias = ['Todos', 'mecanica', 'electronica', 'papeleria']
 const categoria = ref(null)
-
 const headers = [
   {
     title: 'Presentación',
@@ -91,15 +96,23 @@ const headers = [
   },
   {
     title: 'Categoría',
-    key: 'categoria'
+    key: 'categoria',
+    align: 'end'
   },
   {
     title: 'Marca',
-    key: 'marca'
+    key: 'marca',
+    align: 'end'
   },
   {
     title: 'Unidad de medida',
-    key: 'unidadmedida'
+    key: 'unidadmedida',
+    align: 'end'
+  },
+  {
+    title: 'Acciones', 
+    key: 'actions',
+    align: 'end'
   }
 ]
 
@@ -134,6 +147,7 @@ const items = ref([
 ])
 
 const getImageUrl = (img) => {
+   
   return new URL(`../assets/${img}`, import.meta.url).href
 }
 

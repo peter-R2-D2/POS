@@ -76,7 +76,7 @@
       value: '/egresos',
       icon: 'mdi-cash-minus',
     },
-  ]
+  ] 
 
   const drawer = ref(mobile.value ? false : true)
   const group = ref(null)
